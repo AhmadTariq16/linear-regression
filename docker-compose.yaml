@@ -1,0 +1,17 @@
+services:
+  train:
+    build: .
+    command: "train"
+    volumes:
+      - ./data:/app/data:ro
+      - ./models:/app/models
+  serve:
+    build: .
+    command: "serve"
+    volumes:
+      - ./models:/app/models:ro
+    depends_on:
+      train:
+        condition: service_completed_successfully
+    ports:
+      - "8000:8000"
