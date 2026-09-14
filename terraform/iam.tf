@@ -15,7 +15,7 @@ resource "aws_iam_role" "github_actions" {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           }
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:AhmadTariq16/linear-regression:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:sub" = "repo:AhmadTariq16@*/linear-regression@*:ref:refs/heads/main"
           }
         }
       }
