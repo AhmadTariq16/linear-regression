@@ -1,13 +1,7 @@
-# linear-regression
+# linear-regression with a twist of Ops
 
-A simple linear regression training/serving service.
-
-## CI/CD
-
-On every push or pull request to `main`, GitHub Actions runs the test suite.
-On push to `main`, it additionally builds the Docker image, scans it with
-Trivy (failing on HIGH/CRITICAL vulnerabilities), and pushes it to ECR
-tagged with the commit SHA. AWS authentication uses OIDC — no static
-credentials are stored in this repository.
-
-An equivalent Jenkins pipeline is defined in the `Jenkinsfile`.
+A simple linear regression service built to practise the Ops around it. A scikit-learn
+model is trained on sample data and served through a FastAPI endpoint. A CI pipeline
+(GitHub Actions, with an equivalent Jenkinsfile) runs the tests, builds a Docker image,
+scans it with Trivy and pushes it to Amazon ECR. The AWS resources, including OIDC
+authentication for CI, are managed with Terraform.
